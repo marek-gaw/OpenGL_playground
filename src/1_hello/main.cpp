@@ -1,3 +1,15 @@
+/************************************************************
+ *
+ * file: main.cpp
+ * brief: App entry point
+ *
+ * Credits: This code/part of it, was originally presented in
+ * "OpenGL Cookbook" by Muhammad Mobeen Movania. Yet this code
+ * is/might be higlhy changed/adopted to my needs.
+ * See README.md for references.
+ *
+ ************************************************************/
+
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 #include <iostream>
