@@ -3,13 +3,7 @@ project(OpenGL_Playground)
 
 set(CMAKE_CXX_STANDARD 11)
 
-# Add sources
-file(GLOB_RECURSE SOURCES
-        ${CMAKE_SOURCE_DIR}/src/*.c
-        ${CMAKE_SOURCE_DIR}/src/*.cpp)
 
-file(GLOB_RECURSE HEADERS
-    ${CMAKE_SOURCE_DIR}/src/*.hpp)
 
 set(CMAKE_MODULE_PATH /usr/local/lib/cmake)
 set(CMAKE_MODULE_PATH /usr/local/lib/x86_64-linux-gnu/cmake/glm)
@@ -25,13 +19,26 @@ include_directories(${GLUT_INCLUDE_DIRS} ${GLEW_INCLUDE_DIRS} ${OPENGL_INCLUDE_D
 link_directories(${GLUT_LIBRARY_DIRS} ${GLEW_LIBRARY_DIRS} ${OPENGL_LIBRARY_DIRS})
 add_definitions(${GLUT_DEFINITIONS} ${GLEW_DEFINITIONS} ${OPENGL_DEFINITIONS})
 
-# executables
-set(SAMPLE 1_hello)
+# executables - names has to be exactly the same as dir names
+set(SAMPLES 1_hello 2_triangle)
 
-set(NAME 1_hello)
+foreach (SAMPLE ${SAMPLES})
 
-add_executable(${NAME} ${SOURCES} ${HEADERS})
+    # Add sources and headers
+    file(GLOB_RECURSE SOURCES
+            "${CMAKE_SOURCE_DIR}/src/${SAMPLE}/*.c"
+            "${CMAKE_SOURCE_DIR}/src/${SAMPLE}/*.cpp")
+    file(GLOB_RECURSE HEADERS
+       "${CMAKE_SOURCE_DIR}/src/${SAMPLE}/*.hpp")
 
-target_link_libraries (${NAME} ${OPENGL_LIBRARIES} ${GLFW3_LIBRARY} libglut.so
-        ${GLEW_LIBRARY} Xxf86vm pthread Xrandr Xinerama Xi Xcursor)
+    add_executable(${SAMPLE} ${SOURCES} ${HEADERS})
+    target_link_libraries (${SAMPLE} ${OPENGL_LIBRARIES} ${GLFW3_LIBRARY} libglut.so
+            ${GLEW_LIBRARY} Xxf86vm pthread Xrandr Xinerama Xi Xcursor)
+
+endforeach(SAMPLE)
+
+
+
+
+
 
