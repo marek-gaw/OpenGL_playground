@@ -8,6 +8,8 @@
 #ifndef COMMON_OGLCONSTANTS_HPP
 #define COMMON_OGLCONSTANTS_HPP
 
+#include <string>
+
 namespace OGL {
 namespace Constants {
     namespace Window {
@@ -19,6 +21,10 @@ namespace Glut {
     namespace Version {
         const int Major = 3;
         constexpr int Minor = 0;
+    }
+    namespace Shaders {
+        const std::string vertPath = "../src/2_triangle/shaders/shader.vert";
+        const std::string fragPath = "../src/2_triangle/shaders/shader.frag";
     }
 }
 
