@@ -3,12 +3,9 @@ project(OpenGL_Playground)
 
 set(CMAKE_CXX_STANDARD 11)
 
-
-
 set(CMAKE_MODULE_PATH /usr/local/lib/cmake)
 set(CMAKE_MODULE_PATH /usr/local/lib/x86_64-linux-gnu/cmake/glm)
 set(CMAKE_PREFIX_PATH /usr/local/lib/cmake/glfw)
-
 
 find_package (OpenGL REQUIRED)
 find_package (glfw3 REQUIRED)
@@ -26,9 +23,11 @@ foreach (SAMPLE ${SAMPLES})
 
     # Add sources and headers
     file(GLOB_RECURSE SOURCES
+            "${CMAKE_SOURCE_DIR}/src/0_common/*.cpp"
             "${CMAKE_SOURCE_DIR}/src/${SAMPLE}/*.c"
             "${CMAKE_SOURCE_DIR}/src/${SAMPLE}/*.cpp")
     file(GLOB_RECURSE HEADERS
+       "${CMAKE_SOURCE_DIR}/src/0_common/*.hpp"
        "${CMAKE_SOURCE_DIR}/src/${SAMPLE}/*.hpp")
 
     add_executable(${SAMPLE} ${SOURCES} ${HEADERS})
