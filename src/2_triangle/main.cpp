@@ -17,7 +17,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "shader/GLSLShader.hpp"
+#include "../0_common/shader/GLSLShader.hpp"
 #include "../0_common/OGLConstants.hpp"
 
 #define GL_CHECK_ERRORS assert(glGetError()== GL_NO_ERROR);
@@ -94,6 +94,8 @@ void OnShutdown() {
     glDeleteBuffers(1, &vboVerticesID);
     glDeleteBuffers(1, &vboIndicesID);
     glDeleteVertexArrays(1, &vaoID);
+
+    std::cout << "OnShutdown\n";
 }
 
 void OnResize(int w, int h) {
@@ -125,14 +127,15 @@ int main(int argc, char** argv) {
     if (GLEW_OK != err)	{
         err = glGetError();
         GL_CHECK_ERRORS
-
-        OnInit();
-        glutCloseFunc(OnShutdown);
-        glutDisplayFunc(OnRender);
-        glutReshapeFunc(OnResize);
-
-        glutMainLoop();
     }
+
+    OnInit();
+    glutCloseFunc(OnShutdown);
+    glutDisplayFunc(OnRender);
+    glutReshapeFunc(OnResize);
+
+    glutMainLoop();
+
 
     return 0;
 }

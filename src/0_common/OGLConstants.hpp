@@ -5,8 +5,8 @@
  *
  ************************************************************/
 
-#ifndef COMMON_OGLCONSTANTS_HPP
-#define COMMON_OGLCONSTANTS_HPP
+#ifndef SRC_0_COMMON_OGLCONSTANTS_HPP
+#define SRC_0_COMMON_OGLCONSTANTS_HPP
 
 #include <string>
 
@@ -31,4 +31,4 @@ namespace Glut {
 }
 }
 
-#endif // COMMON_OGLCONSTANTS_HPP
+#endif // SRC_0_COMMON_OGLCONSTANTS_HPP

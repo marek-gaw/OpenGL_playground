@@ -10,8 +10,8 @@
  *
  ************************************************************/
 
-#ifndef SRC_2_TRIANGLE_SHADER_GLSLSHADER_HPP
-#define SRC_2_TRIANGLE_SHADER_GLSLSHADER_HPP
+#ifndef SRC_0_COMMON_SHADER_GLSLSHADER_HPP
+#define SRC_0_COMMON_SHADER_GLSLSHADER_HPP
 
 #include <map>
 #include <string>
@@ -38,10 +38,10 @@ private:
     enum ShaderType {VERTEX_SHADER, FRAGMENT_SHADER, GEOMETRY_SHADER};
     GLuint	_program;
     int _totalShaders;
-    std::array<GLuint,3>_shaders; //0->shader wierzcho³ków, 1->shader fragmentów, 2->shader geometrii
+    std::array<GLuint,3>_shaders;
     std::map<std::string,GLuint> _attributeList;
     std::map<std::string,GLuint> _uniformLocationList;
 
 };
 
-#endif // SRC_2_TRIANGLE_SHADER_GLSLSHADER_HPP
+#endif // SRC_0_COMMON_SHADER_GLSLSHADER_HPP

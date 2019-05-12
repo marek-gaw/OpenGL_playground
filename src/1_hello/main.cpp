@@ -16,7 +16,7 @@
 #include <random>
 #include <functional>
 
-#include "OGLConstants.hpp"
+#include "../0_common/OGLConstants.hpp"
 
 void onRedraw() {
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
